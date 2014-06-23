@@ -1,7 +1,8 @@
 @extends('layouts.base')
 
 @section('cabecera')
-	@parent
+        <title>Saca Promedios</title>
+        {{ HTML::style('css/promedios.css') }}
 @stop
 
 @section('cuerpo')

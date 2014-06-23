@@ -5,8 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="{{ asset('ico/favicon.ico') }}">
-        <title>Saca Promedios</title>
-
         <!-- Bootstrap -->
         {{ HTML::style('css/bootstrap.min.css') }}
 
@@ -14,8 +12,8 @@
 
         <!-- Custom styles for this template -->
         @section('cabecera')
-        	{{ HTML::style('css/promedios.css') }}
-		@show
+        	
+        @show
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,12 +23,12 @@
         <![endif]-->
     </head>
     <body>
-		@section('cuerpo')
+    @section('cuerpo')
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
         {{ HTML::script('js/jquery.min.js') }}
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         {{ HTML::script('js/bootstrap.min.js') }}
-        @show
+    @show
     </body>
 </html>

@@ -1,8 +1,9 @@
 @extends('layouts.base')
 
 @section('cabecera')
-  @parent
+    <title>Calculadora</title>
   {{ HTML::style('css/calculadora.css') }}
+  {{ HTML::style('css/bootstrap-editable.css') }}
 @stop
 
 @section('cuerpo')
@@ -14,6 +15,7 @@
             <span class="sr-only">Toggle navigation</span>
           </button>
           <a class="navbar-brand" href="#">Calculadora</a>
+          {{ HTML::image('ico/logotipo.png', "Imagen no encontrada", array('id' => 'logo', 'title' => 'logo', 'height'=>'20px', 'style'=>'margin-top: 15px; display:block;')) }}
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -80,7 +82,7 @@
             <div class="panel-heading">
               <h3 class="panel-title">Semestre 1</h3>
             </div>
-            <table class="table table-striped">
+            <table class="table table-striped table-hover table-condensed">
               <thead>
                 <tr>
                   <th>Materia</th>
@@ -96,7 +98,7 @@
               <tbody>
                 <tr>
                   <td>Materia 1</td>
-                  <td>??</td>
+                  <td><a href="#" id="username">??</a></td>
                   <td>??</td>
                   <td>??</td>
                   <td>??</td>
@@ -372,4 +374,15 @@
     </div>
   @parent
   {{ HTML::script('js/docs.min.js') }}
+  {{ HTML::script('js/bootstrap-editable.js') }}
+  <script type="text/javascript">
+  $('#username').editable({
+                           type:  'text',
+                           pk:    1,
+                           name:  'username',
+                           url:   'post.php',  
+                           title: 'Enter username'
+                        });
+  
+</script>
 @stop
