@@ -94,3 +94,17 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+.nota:hover {
+/*   border-color: #358753;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #85d0a1;
+box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #85d0a1;*/
+    //border-radius:5px;
+    //padding:2px 4px;
+    color:#d9534f;
+    font-weight: bolder;
+    //font-size: 115%;
+}
+.clickedit {
+    max-width: 40px;
+    height: 25px;
+}
