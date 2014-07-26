@@ -1,125 +1,292 @@
-/*
-SQLyog Ultimate v9.63 
-MySQL - 5.5.32 : Database - promediar
-*********************************************************************
-*/
+-- phpMyAdmin SQL Dump
+-- version 4.0.10deb1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generaci√≥n: 26-07-2014 a las 16:11:56
+-- Versi√≥n del servidor: 5.5.38-0ubuntu0.14.04.1
+-- Versi√≥n de PHP: 5.5.15-1+deb.sury.org~trusty+1
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
-/*!40101 SET SQL_MODE=''*/;
+--
+-- Base de datos: `laravel-prueba`
+--
 
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`promediar` /*!40100 DEFAULT CHARACTER SET latin1 */;
+-- --------------------------------------------------------
 
-USE `promediar`;
+--
+-- Estructura de tabla para la tabla `juegos`
+--
 
-/*Table structure for table `mat-usuario_nota` */
+CREATE TABLE IF NOT EXISTS `juegos` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
-DROP TABLE IF EXISTS `mat-usuario_nota`;
+--
+-- Volcado de datos para la tabla `juegos`
+--
 
-CREATE TABLE `mat-usuario_nota` (
+INSERT INTO `juegos` (`id`, `nombre`, `descripcion`, `created_at`, `updated_at`) VALUES
+(1, 'Assassins Creed', 'Assassins VS templarios.', '2014-07-25 03:58:59', '2014-07-25 03:58:59');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `migrations`
+--
+
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `migrations`
+--
+
+INSERT INTO `migrations` (`migration`, `batch`) VALUES
+('2014_06_24_044217_create_users', 1),
+('2014_06_24_050737_crear_juegos', 2),
+('2014_06_24_054351_anade_timestamps_juegos', 2),
+('2014_07_15_135517_create_users_table', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pruebas`
+--
+
+CREATE TABLE IF NOT EXISTS `pruebas` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(25) NOT NULL,
+  `otro_atributo` varchar(50) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `pruebas`
+--
+
+INSERT INTO `pruebas` (`id`, `nombre`, `otro_atributo`, `updated_at`, `created_at`) VALUES
+(0, 'lalal', '', '2014-07-25 04:08:30', '2014-07-25 04:08:30');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `remember_token` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_username_unique` (`username`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `created_at`, `updated_at`, `remember_token`) VALUES
+(1, 'Administrator', 'admin', 'admin@admin.com', '$2y$10$zLO1y/fxLtFHJ297IDMZZOIJWtGUuigpYHrpRwjCGcwmjZemW9gLu', '2014-07-15 19:12:37', '2014-07-15 19:32:55', 'tLpQtjWpQDghr6nmAy9uzmSmxmzoXXHO4ZMmvC26uNx3kNNsE8YPh2X1xpfy');
+--
+-- Base de datos: `login`
+--
+--
+-- Base de datos: `promediar`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mat-usuario_notas`
+--
+
+CREATE TABLE IF NOT EXISTS `mat-usuario_notas` (
   `id_mat-usuario_nota` int(11) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `id_mat-usuario` int(11) unsigned zerofill NOT NULL,
   `id_nota` int(11) unsigned zerofill NOT NULL,
   PRIMARY KEY (`id_mat-usuario_nota`),
   KEY `id_mat-usuario` (`id_mat-usuario`),
-  KEY `id_nota` (`id_nota`),
-  CONSTRAINT `id_mat-usuario` FOREIGN KEY (`id_mat-usuario`) REFERENCES `materia-usuario` (`id_mat-usuario`),
-  CONSTRAINT `id_nota` FOREIGN KEY (`id_nota`) REFERENCES `notas` (`id_nota`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `id_nota` (`id_nota`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-/*Data for the table `mat-usuario_nota` */
+-- --------------------------------------------------------
 
-/*Table structure for table `materia-usuario` */
+--
+-- Estructura de tabla para la tabla `materia-usuarios`
+--
 
-DROP TABLE IF EXISTS `materia-usuario`;
-
-CREATE TABLE `materia-usuario` (
+CREATE TABLE IF NOT EXISTS `materia-usuarios` (
   `id_mat-usuario` int(11) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `id_usuario` int(11) unsigned zerofill NOT NULL,
   `id_materia` int(11) unsigned zerofill NOT NULL,
   `repeticion` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_mat-usuario`),
   KEY `id_usuario` (`id_usuario`),
-  KEY `id_materia` (`id_materia`),
-  CONSTRAINT `id_materia` FOREIGN KEY (`id_materia`) REFERENCES `materias` (`id_materia`),
-  CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `id_materia` (`id_materia`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-/*Data for the table `materia-usuario` */
+-- --------------------------------------------------------
 
-/*Table structure for table `materias` */
+--
+-- Estructura de tabla para la tabla `materias`
+--
 
-DROP TABLE IF EXISTS `materias`;
-
-CREATE TABLE `materias` (
+CREATE TABLE IF NOT EXISTS `materias` (
   `id_materia` int(11) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `nombre_materia` varchar(255) NOT NULL,
-  `id_programa` int(11) unsigned zerofill NOT NULL,
-  `semestre` enum('I','II','III','IV','V','VI','VII','VIII','IX','X') DEFAULT NULL,
-  PRIMARY KEY (`id_materia`),
-  KEY `id_programa` (`id_programa`),
-  CONSTRAINT `id_programa` FOREIGN KEY (`id_programa`) REFERENCES `programas` (`id_programa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `anotacion` varchar(255) DEFAULT NULL,
+  `creditos` int(11) NOT NULL,
+  PRIMARY KEY (`id_materia`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
-/*Data for the table `materias` */
+--
+-- Volcado de datos para la tabla `materias`
+--
 
-/*Table structure for table `notas` */
+INSERT INTO `materias` (`id_materia`, `nombre_materia`, `anotacion`, `creditos`) VALUES
+(00000000001, 'CALCULO DIFERENCIAL', 'ingenieria', 4),
+(00000000002, 'ECUACIONES DIFERENCIALES', 'ingenieria', 3),
+(00000000003, 'MECANICA', 'fisica 1', 4),
+(00000000004, 'QUIMICA GENERAL', NULL, 5),
+(00000000005, 'QUIMICA ORGANICA', NULL, 4),
+(00000000006, 'ESTADISTICA II', NULL, 3),
+(00000000007, 'ESTADISTICA I', NULL, 3),
+(00000000008, 'CALCULO INTEGRAL', NULL, 4),
+(00000000009, 'CALCULO VECTORIAL', NULL, 4),
+(00000000010, 'ALGEBRA LINEAL', NULL, 3),
+(00000000011, 'MATEMATICAS ESPECIALES', NULL, 3),
+(00000000012, 'ELECTRICIDAD Y MAGNETISMO', NULL, 4),
+(00000000013, 'PROGRAMACION I', NULL, 3),
+(00000000014, 'PROGRAMACION II', NULL, 3),
+(00000000015, 'CIRCUITOS DC', NULL, 4),
+(00000000016, 'CIRCUITOS AC', NULL, 4),
+(00000000017, 'CIRCUITOS DIGITALES', NULL, 4),
+(00000000018, 'BIOLOGIA I', NULL, 3),
+(00000000019, 'BIOLOGIA II', NULL, 3),
+(00000000020, 'PROCEDIMIENTOS BASICOS', NULL, 2),
+(00000000021, 'ANATOMIA', NULL, 6),
+(00000000022, 'EMBRIOLOGIA E HISTOLOGIA', NULL, 5),
+(00000000023, 'GENETICA', NULL, 2),
+(00000000024, 'FISIOLOGIA', NULL, 6),
+(00000000025, 'PATOLOGIA', NULL, 6),
+(00000000026, 'SEMIOLOGIA', NULL, 7),
+(00000000027, 'PSIQUIATRIA', NULL, 7);
 
-DROP TABLE IF EXISTS `notas`;
+-- --------------------------------------------------------
 
-CREATE TABLE `notas` (
+--
+-- Estructura de tabla para la tabla `notas`
+--
+
+CREATE TABLE IF NOT EXISTS `notas` (
   `id_nota` int(11) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `id_seguimiento` int(11) unsigned zerofill NOT NULL,
   `valor_nota` int(3) unsigned NOT NULL,
   PRIMARY KEY (`id_nota`),
-  KEY `id_seguimiento` (`id_seguimiento`),
-  CONSTRAINT `id_seguimiento` FOREIGN KEY (`id_seguimiento`) REFERENCES `seguimientos` (`id_seguimiento`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `id_seguimiento` (`id_seguimiento`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-/*Data for the table `notas` */
+-- --------------------------------------------------------
 
-/*Table structure for table `programas` */
+--
+-- Estructura de tabla para la tabla `programa-materias`
+--
 
-DROP TABLE IF EXISTS `programas`;
+CREATE TABLE IF NOT EXISTS `programa-materias` (
+  `id_programa-materia` int(11) NOT NULL AUTO_INCREMENT,
+  `id_programa` int(11) unsigned zerofill NOT NULL,
+  `id_materia` int(11) unsigned zerofill NOT NULL,
+  PRIMARY KEY (`id_programa-materia`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-CREATE TABLE `programas` (
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `programas`
+--
+
+CREATE TABLE IF NOT EXISTS `programas` (
   `id_programa` int(11) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `nombre_programa` varchar(255) NOT NULL,
   PRIMARY KEY (`id_programa`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
-/*Data for the table `programas` */
+--
+-- Volcado de datos para la tabla `programas`
+--
 
-insert  into `programas`(`id_programa`,`nombre_programa`) values (00000000001,'Ingenieria de Sistemas');
+INSERT INTO `programas` (`id_programa`, `nombre_programa`) VALUES
+(00000000001, 'Ingenieria de Sistemas'),
+(00000000002, 'Ingenier√≠a Civil'),
+(00000000003, 'Ingenier√≠a Industrial'),
+(00000000004, 'Ingenier√≠a Ambiental y Sanitaria'),
+(00000000005, 'Ingerier√≠a Electr√≥nica'),
+(00000000006, 'Ingenir√≠a Agron√≥mica'),
+(00000000007, 'Ingerier√≠a Pesquera'),
+(00000000008, 'Derecho'),
+(00000000009, 'Medicina'),
+(00000000010, 'Enfermeria'),
+(00000000011, 'Cine y Audiovisuales'),
+(00000000012, 'Biologia'),
+(00000000013, 'Licenciatura en Preescolar');
 
-/*Table structure for table `seguimientos` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `seguimientos`;
+--
+-- Estructura de tabla para la tabla `seguimientos`
+--
 
-CREATE TABLE `seguimientos` (
+CREATE TABLE IF NOT EXISTS `seguimientos` (
   `id_seguimiento` int(11) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `indicativo` enum('PRIMERO','SEGUNDO','TERCER') DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `fecha_cierre` date DEFAULT NULL,
   PRIMARY KEY (`id_seguimiento`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
-/*Data for the table `seguimientos` */
+--
+-- Volcado de datos para la tabla `seguimientos`
+--
 
-/*Table structure for table `usuarios` */
+INSERT INTO `seguimientos` (`id_seguimiento`, `indicativo`, `fecha_inicio`, `fecha_cierre`) VALUES
+(00000000001, 'PRIMERO', NULL, NULL),
+(00000000002, 'SEGUNDO', NULL, NULL),
+(00000000003, 'TERCER', NULL, NULL);
 
-DROP TABLE IF EXISTS `usuarios`;
+-- --------------------------------------------------------
 
-CREATE TABLE `usuarios` (
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
   `id_usuario` int(11) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `codigo` int(10) unsigned NOT NULL,
-  `pass` blob NOT NULL,
-  `correo` varchar(255) DEFAULT NULL,
-  `fecha_usuario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `ultima_visita` datetime DEFAULT NULL,
   `ultima_direccion_ip` varchar(255) DEFAULT NULL,
   `estado` enum('ACTIVO','INACTIVO') NOT NULL DEFAULT 'ACTIVO',
@@ -128,16 +295,20 @@ CREATE TABLE `usuarios` (
   `p_semestral_mas_bajo` int(3) DEFAULT NULL,
   `p_semestral_mas_alto` int(3) DEFAULT NULL,
   `id_programa` int(11) unsigned zerofill NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `remember_token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
-  KEY `programa` (`id_programa`),
-  CONSTRAINT `programa` FOREIGN KEY (`id_programa`) REFERENCES `programas` (`id_programa`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  KEY `programa` (`id_programa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
-/*Data for the table `usuarios` */
+--
+-- Volcado de datos para la tabla `users`
+--
 
-insert  into `usuarios`(`id_usuario`,`codigo`,`pass`,`correo`,`fecha_usuario`,`ultima_visita`,`ultima_direccion_ip`,`estado`,`avatar`,`promedio_ponderado`,`p_semestral_mas_bajo`,`p_semestral_mas_alto`,`id_programa`) values (00000000002,2010114040,'0™ã∂ˆ`sBcîŸbU®','joche.echavezm@gmail.com','2014-06-22 16:20:14',NULL,NULL,'ACTIVO',NULL,NULL,NULL,NULL,00000000001);
+INSERT INTO `users` (`id_usuario`, `username`, `password`, `email`, `ultima_visita`, `ultima_direccion_ip`, `estado`, `avatar`, `promedio_ponderado`, `p_semestral_mas_bajo`, `p_semestral_mas_alto`, `id_programa`, `created_at`, `updated_at`, `remember_token`) VALUES
+(00000000001, 'admin', '$2y$10$zLO1y/fxLtFHJ297IDMZZOIJWtGUuigpYHrpRwjCGcwmjZemW9gLu', 'admin@admin.com', NULL, NULL, 'ACTIVO', NULL, NULL, NULL, NULL, 00000000001, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
