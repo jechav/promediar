@@ -2,6 +2,7 @@
 
 @section('cabecera')
         <title>Saca Promedios</title>
+        @parent
         {{ HTML::style('css/promedios.css') }}
 @stop
 
@@ -26,7 +27,7 @@
             </div>
 
             <hr> 
-            <div class="footer">
+            <div class="footer">@parent
                 <p>&copy; The3ballsoft 2014</p>
 
         </div>

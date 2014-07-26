@@ -92,7 +92,3 @@ function caso3(seg1, seg2, seg3, nota_f){
         seg3 = nota_f -(nota1+nota2);
     }
 }
-
-
-
-
