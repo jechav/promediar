@@ -115,118 +115,30 @@
                             <th>Corte 1</th>
                             <th>Corte 2</th>
                             <th>Corte 3</th>
-                            <th>Restante</th>
                             <th>Estado</th>
-                            <th>Autocalcular</th>
+                            <th>Calcular</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Materia 1</td>
-                            <td>??</td>
-                            <td>??</td>
-                            <td><div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td><div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
                             <td>
-                                <div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
+                                <input id="mat1-def" class="form-control input-sm" maxlength="3" type="number" />
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                                    <label class="onoffswitch-label" for="myonoffswitch">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
                                 </div>
                             </td>
-                            <td><span class="badge">??</span></td>
+                            <td><span id="mat1-creditos">4</span></td>
+                            <td><input id="mat1-seg1"class="form-control input-sm" maxlength="3" type="number" /></td>
+                            <td><input id="mat1-seg2"class="form-control input-sm" maxlength="3" type="number" /></td>
+                            <td><input id="mat1-seg3"class="form-control input-sm" maxlength="3" type="number" /></td>
                             <td><span class="label label-danger">Perdida</span></td>
                             <td><button type="button"><span class="glyphicon glyphicon-cog"></span></button></td>
                         </tr>
-                        <tr>
-                            <td>Materia 2</td>
-                            <td>??</td>
-                            <td>??</td>
-                            <td><div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td><div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td><span class="badge">??</span></td>
-                            <td><span class="label label-success">Ganada</span></td>
-                            <td><button type="button"><span class="glyphicon glyphicon-cog"></span></button></td>
-                        </tr>
-                        <tr>
-                            <td>Materia 3</td>
-                            <td>??</td>
-                            <td>??</td>
-                            <td><div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td><div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td><span class="badge">??</span></td>
-                            <td><span class="label label-success">Ganada</span></td>
-                            <td><button type="button"><span class="glyphicon glyphicon-cog"></span></button></td>
-                        </tr>
-                        <tr>
-                            <td>Materia 4</td>
-                            <td>??</td>
-                            <td>??</td>
-                            <td><div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td><div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td><span class="badge">??</span></td>
-                            <td><span class="label label-default">con errores</span></td>
-                            <td><button type="button"><span class="glyphicon glyphicon-cog"></span></button></td>
-                        </tr>
-                        <tr>
-                            <td>Materia 5</td>
-                            <td>??</td>
-                            <td>??</td>
-                            <td><div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td><div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="has-success">
-                                    <label class="pull-left nota" title="Edita este valor">???</label><input class="form-control input-sm clickedit" maxlength="3" type="text" />
-                                </div>
-                            </td>
-                            <td><span class="badge">??</span></td>
-                            <td><span class="label label-warning">Pendiente</span></td>
-                            <td><button type="button"><span class="glyphicon glyphicon-cog"></span></button></td>
-                        </tr>
-
                     </tbody>
                 </table>
             </div>
