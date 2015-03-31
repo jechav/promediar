@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :enrollments_scores
+  resources :enrollments
+  resources :subjects
+  resources :scores
+  resources :programs
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

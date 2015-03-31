@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Enrollments Scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id enrollment</th>
+      <th>Id score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @enrollments_scores.each do |enrollments_score| %>
+      <tr>
+        <td><%= enrollments_score.id_enrollment %></td>
+        <td><%= enrollments_score.id_score %></td>
+        <td><%= link_to 'Show', enrollments_score %></td>
+        <td><%= link_to 'Edit', edit_enrollments_score_path(enrollments_score) %></td>
+        <td><%= link_to 'Destroy', enrollments_score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Enrollments score', new_enrollments_score_path %>

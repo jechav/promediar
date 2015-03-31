@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  password: MyString
+  email: MyString
+  state: false
+  average: 1
+  id_program: 1
+
+two:
+  username: MyString
+  password: MyString
+  email: MyString
+  state: false
+  average: 1
+  id_program: 1
